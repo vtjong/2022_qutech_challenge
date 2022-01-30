@@ -20,12 +20,12 @@ In conjunction with these encryption algorithms, we have also developed three ma
 ### Website
 The chat website is programmed using Django. It contains all HTML, CSS, Python and javascript files. The website is used for the users to securely chat with each other. First there is a room name and then they add their name. Once inside the room a person can send a message. Now when a message is sent, information such as username, message content, and ip address is passed to the chatting server which will then safely encrypt the message. This chatting server gets the key from the Quantum Key Distribution making it safe and secure.
 
-### Website
-The chat website is programmed using Django. It contains all HTML, CSS, Python and javascript files.
-The website is used for the users to securely chat with each other. First there is a room name and then they add their name. Once inside the room a person can send a message. Now when a message is sent, information such as username, message content, and ip address is passed to the chatting server which will then safely encrypt the message. This chatting server gets the key from the Quantum Key Distribution making it safe and secure. 
-
 ## Future Plans
 We intend to gear our encryption applications towards aiding domestic abuse victims, whose lines of communication are often monitored by their aggressors. 
+
+### Footnote
+MIT iQuHACK has been an absolutely fantastic experience for all of us. All the members of our group come from different backgrounds--countries, schools, and majors. Yet, we were able to establish a strong group culture and tackle problems at the forefront of our industry. We'd like to give special thanks to MIT and QuTech for making this experience possible!
+
 ## Resources:
 ### What QKD does?
 “Quantum key distribution is only used to produce and distribute a key, not to transmit any message data. This key can then be used with any chosen encryption algorithm to encrypt (and decrypt) a message, which can then be transmitted over a standard communication channel. The algorithm most commonly associated with QKD is the one-time pad, as it is provably secure when used with a secret, random key. In real-world situations, it is often also used with encryption using symmetric key algorithms like the Advanced Encryption Standard algorithm.”
