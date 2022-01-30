@@ -5,19 +5,36 @@
   <a href="https://iquhack.mit.edu/" target="_blank"><img src="https://user-images.githubusercontent.com/10100490/151647370-d161d5b5-119c-4db9-898e-cfb1745a8310.png" width="10%" style="padding-left: 0%"/> </a>
 </p>
 
+## Description
+For this challenge you will be tasked with creating an interface and method to use quantum key
+distribution to send an encrypted message between the members of your team.
 
-## Description 
+## Our Solution
 
-For the 2022 edition of the iQuHack (interdisciplinary Quantum HACKathon), [QuTech](https://qutech.nl) has partnered with the team at MIT to propose 2 challenges, hosted in our own multi-hardware Quantum Technology platform, [Quantum Inspire](https://www.quantum-inspire.com). These aim to draw participants to the challenges at the heart of our mission: to develop scalable prototypes of a quantum computer and an inherently safe quantum internet, based on the fundamental laws of quantum mechanics.
+In our group, we have developped 4 main divisions of the challenge:
 
-To qualify for the QuTech Division Challenge, participants should submit a project that addresses either the proposed Quantum Error Correction (QEC) challenge or the Quantum Key Distribution (QKD) challenge. Detailed descriptions of these two challenges and their goals are available in the documents linked below (hosted in this repository):
+### QKD Algorithm
+We chose the protocol E91 to distribute sifted key between two parties. This protocol is based on Quantum Teleportation. 
+The algorithm is coded in Python language as shown in 'E91.py'. We have implemented the protocol on the Emulator in order to get benefit of the large number of qubits available.
 
-- [Quantum Error Correction Challenge](https://github.com/iQuHACK/2022_qutech_challenge/blob/main/QuantumErrorCorrectionChallenge.pdf)
-- [Quantum Key Distribution Challenge](https://github.com/iQuHACK/2022_qutech_challenge/blob/main/QuantumKeyDistrubutionChallenge.pdf)
+### Encrytption
+After obtaining the sifted key from QKD Algorithm, it is time to use the private key to encrypt and decode messages between two parties. In our case, we have used mainly the 'Symmetric Key Algorithms' as shown in 'encrypt.py'. These encryption algorithms are tested on client-server communication and email sending as it is shown by 'serverclient.py' and other relevant testing scripts.
 
+### Chatting Server
+Chatting server is a platform of chatroom that maintains group messaging using sockets. The chatroom server and clients are programmed by 'server_side.py' and 'client_side.py'.
 
-## Scoring and Submission
+### Website
+The chat website is programmed using Django. It contains all HTML, CSS, Python and javascript files.
+The website is used for the users to securely chat with each other. First there is a room name and then they add their name. Once inside the room a person can send a message. Now when a message is sent, information such as username, message content, and ip address is passed to the chatting server which will then safely encrypt the message. This chatting server gets the key from the Quantum Key Distribution making it safe and secure. 
 
-**Rubric:** https://docs.google.com/document/u/1/d/e/2PACX-1vR5PVoInN_Fi42lIOchhblgGBPblgNyouj1XHukonZ4sdqY-p5ulS9TxdzvddEcDNFc5k_6teFyKzXv/pub
+## Resources:
+### What QKD does?
+“Quantum key distribution is only used to produce and distribute a key, not to transmit any message data. This key can then be used with any chosen encryption algorithm to encrypt (and decrypt) a message, which can then be transmitted over a standard communication channel. The algorithm most commonly associated with QKD is the one-time pad, as it is provably secure when used with a secret, random key. In real-world situations, it is often also used with encryption using symmetric key algorithms like the Advanced Encryption Standard algorithm.”
 
-**Submission:** Please visit https://iquhack.mit.edu/ for details on how to submit your project.
+### Protocols
+1. BB84 Protocol: Using randomly X basis and Z basis.
+2. B92 Protocol: Simplified BB84 protocol.
+3. Eckert's Protocol E91: Using quantum teleportation and Bell states instead of superposition.
+
+### Privacy Amplification
+“Since there is some error, we must assume that Eve may have successfully learned some of the key's bits. QKD protocols can employ a technique known as privacy amplification to reduce the information Eve has about the key down to an arbitrary level.”
